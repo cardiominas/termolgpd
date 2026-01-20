@@ -1,0 +1,332 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* BASE */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #411d1d;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+/* LOGO NO FUNDO (MARCA D’ÁGUA FIXA) */
+.logocardio {
+  position: fixed;
+  inset: 0;
+  background-image: url("logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.1;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* HEADER */
+.top-bar {
+  height: 40px;
+  background-color: #f1eeef;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* garante canto esquerdo */
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  gap: 12px;
+}
+
+.header-logo {
+  height: 40px;   /* BEM PEQUENA */
+  width: auto;
+  display: block;
+}
+
+.top-bar h1 {
+  color: #0c0c0c;
+  font-size: 18px;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  font-weight: bold;
+}
+
+
+/* CONTEÚDO PRINCIPAL */
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 50px auto 120px;
+  padding: 20px 45px;
+ 
+  border-radius: 12px;
+}
+
+/* TÍTULOS */
+h1 {
+  text-align: center;
+  color: #eee9ea;
+  font-size: 40px;
+  margin-bottom: 8px;
+}
+
+h2 {
+  text-align: center;
+  color: #f5f5f5;
+  font-weight: bolder;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+h3 {
+  color: #b00020;
+  font-size: 20px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+h4 {
+  color: #8b0018;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+/* TEXTO */
+p {
+  margin-bottom: 16px;
+  font-size: 15px;
+}
+
+ul {
+  margin-left: 20px;
+  margin-bottom: 16px;
+}
+
+li {
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.footer {
+  margin-top: 40px;
+  padding: 20px 18px 24px;
+  text-align: center;
+  font-size: 14px;
+  color: #4b4848;
+
+  display: flex;
+  flex-direction: column;   /* UM ABAIXO DO OUTRO */
+  align-items: center;      /* CENTRALIZA HORIZONTAL */
+  gap: 8px;
+}
+
+.footer-logo-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;  /* CENTRALIZA DE VERDADE */
+}
+
+.footer-logo {
+  width: 55px;      /* bem pequena */
+  opacity: 0.5;
+  display: block;
+}
+
+
+/* ===========================
+   BOTÃO VOLTAR AO TOPO
+=========================== */
+.back-to-top {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  background: #8b0018;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  z-index: 99999;
+
+  /* animação */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px); /* leve slide pra baixo */
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0); /* volta pro lugar */
+}
+
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 76px; /* acima do botão "Topo" */
+  right: 18px;
+  z-index: 99999;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  background: #25d366;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+
+  padding: 12px 14px;
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.whatsapp-float:hover {
+  filter: brightness(0.96);
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+/* Texto do botão (PC aparece) */
+.wa-text {
+  display: inline;
+}
+
+
+/* ===========================
+   ALINHAR BOTÕES AO CARD NO PC
+   (igual no celular, mas colado ao .content)
+=========================== */
+
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .content {
+    margin: 20px 15px 140px;
+    padding: 25px 22px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  h4 {
+    font-size: 15px;
+  }
+
+  p,
+  li {
+    font-size: 14px;
+  }
+
+  /* Botões no canto normal no mobile */
+  .whatsapp-float,
+  .back-to-top {
+    right: 14px;
+  }
+
+  .back-to-top {
+    bottom: calc(14px + env(safe-area-inset-bottom));
+  }
+
+  .whatsapp-float {
+    bottom: calc(70px + env(safe-area-inset-bottom));
+    padding: 12px;
+  }
+
+  /* No celular vira só ícone (se quiser texto no celular, apaga essa regra) */
+  .wa-text {
+    display: none;
+    /* Ícones dos botões flutuantes */
+.icon{
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+/* Ajuste visual dos botões redondos */
+.whatsapp-float,
+.back-to-top{
+  padding: 12px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover suave */
+.whatsapp-float:hover,
+.back-to-top:hover{
+  transform: translateY(-2px);
+  transition: transform 0.2s ease;
+}
+/* Barra de progresso do scroll */
+#progress{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: #25d366;
+  z-index: 999999;
+}
+
+/* Reveal (fade + slide) */
+.reveal{
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .45s ease, transform .45s ease;
+}
+
+.reveal.show{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Header com sombra ao rolar */
+.top-bar{
+  transition: box-shadow .2s ease, background-color .2s ease;
+}
+
+.top-bar.scrolled{
+  box-shadow: 0 10px 25px rgba(0,0,0,.18);
+}
+
+/* WhatsApp com “chamadinha” leve */
+.whatsapp-float.pulse{
+  animation: pulseSoft 1.6s ease-in-out infinite;
+}
+
+@keyframes pulseSoft{
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+  }
+}
